@@ -69,7 +69,9 @@ const getYouTubeResults = async (query) => {
 
 // Function to fetch next video details
 const getNextVideoDetails = async (videoId) => {
+    console.log('Fetching next video details for:', videoId);
     const result = await youtube.getVideo(videoId);
+    console.log('Related videos:', result);
     const video = result.related.items.find((item) => !item.isLive);
 
     if (!video) {
